@@ -1,0 +1,10 @@
+import pandas as pd
+from os import listdir
+import glob
+
+files = glob.glob("C:/Users/DELL/Desktop/data/*.xls")
+cols = ['日期','车牌号','纬度','经度','车辆定位时间','速度','位置']
+
+dflist = [pd.read_excel(i,usecols=cols) for i in files]
+df = pd.concat(dflist)
+df.to_csv("D:\Mywork\DB\diff5",sep=',')
